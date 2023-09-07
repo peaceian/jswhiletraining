@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScriptWhile</title>
+    <style>
+        td {
+            border: groove 2px black;
+            margin: 5px;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        form,
+        output {
+            border: groove 2px black;
+            width: fit-content;
+        }
+
+        input {
+            border: none;
+            width: fit-content;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h2>While</h2>
+    <script>
+        let x = 100;
+        while (x >= 0) { document.write(x, ' '); x--; }//x-=1
+        document.write('<br>');
+
+
+        let y = 0;
+        while (y <= 100) { document.write(y, ' '); y += 1; }
+        document.write('<br>');
+
+        document.write('<h2>do...while</h2>');
+        let z = 0;
+        do { document.write(z, ' '); z += 1; } while (z <= 100);//At least runs once.
+        document.write('<br>');
+
+    </script>
+    <br>
+    <script>
+        document.write('<h2>for(i=0;i<10;i++)</h2>')
+        for (i = 0; i < 10; i++) { document.write(i + ''); }
+    </script>
+    <br>
+    <br>
+    <h2>Function Declaration</h2>
+    <script>//函示宣告
+        function hello() { let x = 'Welcome!!!'; document.write(x); };
+        hello();
+    </script>
+    <br>
+    <br>
+    <h2>Function Expression</h2>
+    <script>//函式表達式
+        Hello = function () { document.write('Hello!!!'); };
+        Hello();
+    </script>
+    <br>
+    <br>
+    <h2>Parameter參數</h2>
+    <p><!--函數參數//功能寫在大括號-->
+        function getArea(width,height) {return width*height,document.write(prompt('請輸入寬度')*prompt('請輸入高度'),'cm');};
+        getArea();
+    </p>
+    <h3>Area</h3>
+    <script>
+        function getArea(width, height) {
+            return width * height, document.write(
+                prompt('請輸入寬度') * prompt('請輸入高度'), 'cm'
+            )
+        };//'return' means the int which is operated is needed to return to show.
+        getArea();
+
+    </script>
+    <br>
+    <br>
+    <h2>+ - * /</h2>
+    <h2>The numbers operation are:</h2>
+    <table>
+        <tr>
+            <td>PLUS</td>
+            <td>:</td>
+            <td id="number1"></td>
+            <td>+</td>
+            <td id="number2"></td>
+            <td>=</td>
+            <td id="result1"></td>
+        </tr>
+        <tr>
+            <td>MINUS</td>
+            <td>:</td>
+            <td id="number3"></td>
+            <td>-</td>
+            <td id="number4"></td>
+            <td>=</td>
+            <td id="result2"></td>
+        </tr>
+        <tr>
+            <td>MULTIPLE</td>
+            <td>:</td>
+            <td id="number5"></td>
+            <td>*</td>
+            <td id="number6"></td>
+            <td>=</td>
+            <td id="result3"></td>
+        </tr>
+        <tr>
+            <td>DIVISION</td>
+            <td>:</td>
+            <td id="number7"></td>
+            <td>/</td>
+            <td id="number8"></td>
+            <td>=</td>
+            <td id="result4"></td>
+        </tr>
+    </table>
+    <h2>The volume operation:</h2>
+    <table>
+        <tr>
+            <td>VOLUME</td>
+            <td>:</td>
+            <td id="number9"></td>
+            <td>*</td>
+            <td id="number10"></td>
+            <td>*</td>
+            <td id="number11"></td>
+            <td>=</td>
+            <td id="result5"></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+
+    <form onchange="volume.value=parseFloat(a.value)*parseFloat(b.value)*parseFloat(c.value)">
+        <label for="a">Length:</label><input id="a" value="50" type="number">*
+        <label for="b">Width:</label><input id="b" value="50" type="number">*
+        <label for="c">Height:</label><input id="c" value="50" type="number">=
+        <label for="volume">Volume(cm<sup>3</sup>):</label><output id="volume" name="volume" for="a*b*c"
+            type="number"></output>
+    </form>
+    <script>//大括號內寫傳回值，功能寫在大括號外，所以不用函式呼叫，功能寫在大括號內，就會跟上面的一樣
+        let number1 = parseFloat(prompt('輸入第一個數字: '));
+        let number2 = parseFloat(prompt('輸入第二個數字: '));
+
+        function plus(a, b) { return a + b; }
+        function minus(a, b) { return a - b; }
+        function multiple(a, b) { return a * b; }
+        function division(a, b) { return a / b; }
+
+        let result1 = plus(number1, number2);//運用函式return
+        let result2 = minus(number1, number2);
+        let result3 = multiple(number1, number2);
+        let result4 = division(number1, number2);
+
+        document.write(number1, ' (cm) + ', number2, ' (cm) = ', result1, ' (cm)<br>');//the results have difference.
+        document.write(number1, ' (cm) - ', number2, ' (cm) = ', result2, ' (cm)<br>');//using the 4 types operator for the same numbers makes the different results. 
+        document.write(number1, ' (cm) * ', number2, ' (cm) = ', result3, ' (cm<sup>2</sup>)<br>');
+        document.write(number1, ' (cm) / ', number2, ' (cm) = ', result4, ' <br>');
+
+
+
+
+
+        
+
+        document.getElementById('number1').innerHTML = number1;
+        document.getElementById('number2').innerHTML = number2;
+        document.getElementById('number3').innerHTML = number1;
+        document.getElementById('number4').innerHTML = number2;
+        document.getElementById('number5').innerHTML = number1;
+        document.getElementById('number6').innerHTML = number2;
+        document.getElementById('number7').innerHTML = number1;
+        document.getElementById('number8').innerHTML = number2;
+        document.getElementById('result1').innerHTML = result1;
+        document.getElementById('result2').innerHTML = result2;
+        document.getElementById('result3').innerHTML = result3;
+        document.getElementById('result4').innerHTML = result4;
+    </script>
+    <script>
+        let number3 = parseFloat(prompt("請輸入長度："));
+        let number4 = parseFloat(prompt("請輸入寬度："));
+        let number5 = parseFloat(prompt("請輸入高度："));
+
+        function volume(a,b,c){return a*b*c;}
+        let result5 = volume(number3,number4,number5);
+
+        var show3 = number3.toFixed(5);
+        var show4 = number4.toFixed(5);
+        var show5 = number5.toFixed(5);
+        var show6 = result5.toFixed(5);
+        document.getElementById('number9').innerHTML = show3;
+        document.getElementById('number10').innerHTML = show4;
+        document.getElementById('number11').innerHTML = show5;
+        document.getElementById('result5').innerHTML = show6;
+    </script>
+</body>
+
+</html>
